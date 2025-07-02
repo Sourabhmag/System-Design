@@ -1,0 +1,43 @@
+	Why Use the Strategy Design Pattern?
+
+	The Strategy Design Pattern is a behavioral design pattern that allows you to define a family of interchangeable algorithms, encapsulate each one, 
+	and make them interchangeable at runtime. Here’s why it’s valuable:
+
+		1) Avoid Hard-Coding Algorithms:
+			Decouples algorithm implementation from the client code, allowing flexibility in choosing algorithms at runtime.
+
+		2) Promote Open/Closed Principle:
+			New strategies can be added without modifying existing code (open for extension, closed for modification).
+
+		3) Eliminate Conditional Statements:
+			Replaces complex conditional logic (e.g., if-else or switch blocks) with polymorphic strategy objects.
+
+		4) Improve Code Maintainability:
+			Each strategy is isolated in its own class, making it easier to test, debug, and reuse.
+
+		5) Runtime Flexibility:
+			Clients can dynamically switch between algorithms based on context (e.g., user input, environment, or configuration).
+
+	When to Use the Strategy Pattern?
+		1) Multiple Algorithm Variants:
+			When you need multiple implementations of an algorithm (e.g., sorting, payment methods, compression algorithms).
+
+		2) Avoid Monolithic Classes:
+			When a class has many conditional statements that alter its behavior.
+
+		3) Isolate Business Logic:
+			When you want to separate algorithmic logic from the client that uses it (e.g., third-party integrations).
+
+		4) Runtime Algorithm Selection:
+			When the choice of algorithm depends on external factors (e.g., configuration, user preferences, or data type).
+		
+	Key Takeaways : 
+		1) Use the Strategy Pattern when you need to decouple an algorithm from its usage, support multiple variants of an algorithm, 
+			or reduce conditional complexity.
+		2) Avoid It for simple scenarios where the algorithm is unlikely to change or when over-engineering would add unnecessary complexity.
+		
+	Real-World Examples:
+		1) Java’s Comparator interface for sorting.
+		2) Payment gateways with multiple methods (credit card, PayPal, etc.).
+		3) Navigation apps with routing strategies (fastest, shortest, scenic).
+

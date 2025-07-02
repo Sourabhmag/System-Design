@@ -1,0 +1,74 @@
+S - Single Responsibility Principle
+	A class should have only one reason to change.
+	Problem - Let's say there is a Pen class and Invoice class. Invoice class contains
+		calculateTotal(), printInvoice() and saveToDB() methods. If I want to change any 
+		logic to printInvoice or saveToDB then it will not follow Single Responsibility
+		principle.
+		
+	Solution - Create 3 different classes and give each class some specific responsibility
+		like CalculateInvoice class will only focus on calculation of invoice
+		PrintInvoice class will only focus on printing the invoice and
+		InvoiceDao class will only focus on saving the invoice into DB.
+-------------------------------------------------------------------------------------
+O - Open Close Principle
+	Open for extension but closed for modification
+	Problem - Let's take above example for InvoiceDao class which is responsible for
+		saving data into db. Now I have come up with new requirement that I want to 
+		save Invoice into file as well. Now if I write another method in this class then
+		it will violate the open close principle. Because you are modifying existing
+		class which is tested and deployed on production.
+	
+	Solution - Take a interface InvoiceDao and add save() method. Then extend this
+		to other classes like DBInvoiceDao and FileInvoiceDao. Then write logic in 
+		these classes. Tomorrow you want to save this invoice somewhere in cloud then 
+		again you have to create new class CloudInvoiceDao and write logic. So it
+		will not violate the principle. 
+-------------------------------------------------------------------------------------
+L - Liskov Substitution Principle
+	If class B is subType of class A then we should be able to replace Object of A
+	with B without breaking the behavior of the program.
+	
+	Problem - Let's say there is a program which is using object of A. Now if I replace
+		Object A with Object of B then also rest of the code should work properly. It
+		should not brake. The end result can be different.
+		eg. there is a interface Bike. It have 2 methods. turnOnEngine() and accelerate().
+		if I do class MotorCycle implements Bike and Bicycle implements Bike then
+		turnOnEngine() will break the code. 
+-------------------------------------------------------------------------------------
+I - Interface Segmented Principle
+	Interface should be such that client should not implement unnecessary functions
+	they do not need.
+	Problem - Let's say there is a interface RestaurantEmployee. it has ->
+		washDishes();
+		serveCustomer();
+		cookFood();
+		then let's say Waiter implements RestaurantEmployee then all these 3 methods
+		should be implemented in this Waiter class. Which violates this principle.
+-------------------------------------------------------------------------------------
+D - Dependency Inversion Principle
+	Class should depend on interface rather that concrete class.
+	Problem - Let's say there is a KeyBoard interface and Mouse interface.
+		Class wiredKeyBoard implements KeyBoard 
+		Class wirelessKeyBoard implements KeyBoard 
+		Class wiredMouse implements Mouse 
+		Class wiredMouse implements Mouse 
+		
+		if I write
+		private final wiredKeyBoard keyBoard;
+		private final wiredMouse mouse;
+		
+		then I can use only objects of wiredKeyBoard and wiredMouse, later point of time 
+		I can't change it.
+	Solution - 
+		private final KeyBoard keyBoard;
+		private final Mouse mouse;
+		instead of above I bound with interface rather than class I can change it any 
+		point of time and it will give more flexibility.
+-------------------------------------------------------------------------------------
+
+Advantages of using SOLID Principles
+1) Avoid Duplicate Code
+2) Easy to maintain
+3) Easy to understand
+4) Flexible software
+5) Reduce Complexity
